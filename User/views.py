@@ -1,6 +1,6 @@
 from django.views import generic
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from models import User
+from models import User, Developer
 from django.core.urlresolvers import reverse_lazy
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
@@ -56,18 +56,18 @@ class UserFormView(View):
  		return render(request, self.template_name, {'form':form})
 
  '''
-class UserCreate(CreateView):
+class DeveloperCreate(CreateView):
 
-	model = User
-	fields = ['user_name', 'user_profile_picture', 'user_age', 'user_profession', 'user_tags'] 
+	model = Developer
+	fields = ['developer_name', 'developer_logo', 'developer_headquarters', 'developer_tags'] 
 
-class UserUpdate(UpdateView):
+class DeveloperUpdate(UpdateView):
 
-	model = User
-	fields = ['user_name', 'user_profile_picture', 'user_age', 'user_profession', 'user_tags'] 
+	model = Developer
+	fields = ['developer_name', 'developer_logo', 'developer_headquarters', 'developer_tags'] 
 
-class UserDelete(DeleteView):
+class DeveloperDelete(DeleteView):
 
-	model = User
+	model = Developer
 
 	success_url = reverse_lazy('User:index')

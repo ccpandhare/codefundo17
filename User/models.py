@@ -8,7 +8,14 @@ class User(models.Model):
 	user_profile_picture = models.CharField(max_length=1000)
 	user_age = models.IntegerField(default=20)
 	user_profession = models.CharField(max_length=50)
-	user_tags = models.CharField(max_length = 1000)
+	user_tags = models.CharField(max_length = 100)
 
 	def __unicode__(self):
 		return self.user_name
+
+class Developer(models.Model):
+
+	developer_name = models.CharField(max_length=100)
+	developer_logo = models.CharField(max_length=1000)
+	developer_headquarters = models.CharField(max_length=1000)
+	developer_tags = models.CharField(max_length=100)
