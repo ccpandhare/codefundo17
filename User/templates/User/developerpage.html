@@ -6,6 +6,7 @@
       justify-content: center;
     }
     ul#developers {
+      color:black !important;
       width: 1280px;
       height: auto;
       padding-left: 0 !important;
@@ -58,56 +59,19 @@
   </style>
   <div id="developercontainer">
   <ul id="developers">
+    {% for developer in object_list %}
     <li>
-      <div class="profile" style="background-image:url(ENTER_URL_HERE)"></div>
+      <div class="profile" style="background-image:url({{ developer.developer_logo.url }})"></div>
       <label for="name">
-        <span>ENTER_NAME_HERE</span>
+        <span>{{ developer.developer_name }}</span>
       </label>
       <label for="headquarters">
-        <span>Headquarters: ENTER_HQ_HERE</span>
+        <span>Headquarters: {{ developer.developer_headquarters }}</span>
       </label>
-      <button type="button" name="viewdetails">View Details</button>
+      <button type="button" name="viewdetails" onclick="location.replace('{% url "User:detail" developer.id %}')">View Details</button>
     </li>
-    <li>
-      <div class="profile" style="background-image:url(ENTER_URL_HERE)"></div>
-      <label for="name">
-        <span>ENTER_NAME_HERE</span>
-      </label>
-      <label for="headquarters">
-        <span>Headquarters: ENTER_HQ_HERE</span>
-      </label>
-      <button type="button" name="viewdetails">View Details</button>
-    </li>
-    <li>
-      <div class="profile" style="background-image:url(ENTER_URL_HERE)"></div>
-      <label for="name">
-        <span>ENTER_NAME_HERE</span>
-      </label>
-      <label for="headquarters">
-        <span>Headquarters: ENTER_HQ_HERE</span>
-      </label>
-      <button type="button" name="viewdetails">View Details</button>
-    </li>
-    <li>
-      <div class="profile" style="background-image:url(ENTER_URL_HERE)"></div>
-      <label for="name">
-        <span>ENTER_NAME_HERE</span>
-      </label>
-      <label for="headquarters">
-        <span>Headquarters: ENTER_HQ_HERE</span>
-      </label>
-      <button type="button" name="viewdetails">View Details</button>
-    </li>
-    <li>
-      <div class="profile" style="background-image:url(ENTER_URL_HERE)"></div>
-      <label for="name">
-        <span>ENTER_NAME_HERE</span>
-      </label>
-      <label for="headquarters">
-        <span>Headquarters: ENTER_HQ_HERE</span>
-      </label>
-      <button type="button" name="viewdetails">View Details</button>
-    </li>
+    {% endfor %}
+    
   </ul>
   </div>
 {% endblock %}
