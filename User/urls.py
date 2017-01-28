@@ -11,6 +11,8 @@ urlpatterns = [
 
 	url(r'developer/add/$', views.DeveloperCreate.as_view(), name = 'developer-add'),
 
+	#/games/developers
+	url(r'^developers/$', views.DeveloperDetailsView.as_view(), name = 'developer-detail'),
 	#/games/developer/2/
 	url(r'developer/(?P<pk>[0-9]+)/$', views.DeveloperUpdate.as_view(), name = 'developer-update'),
 

@@ -14,6 +14,12 @@ class IndexView(generic.ListView):
 	def get_queryset(self):
 		return User.objects.all()
 
+class DeveloperDetailsView(generic.ListView):
+	template_name = 'User/developerpage.html'
+
+	def get_queryset(self):
+		return Developer.objects.all()
+
 
 class DetailView(generic.DetailView):
 	model = Developer
