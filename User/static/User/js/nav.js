@@ -10,6 +10,4 @@ $('section').not(".work").on('click', function(){
   $(this).addClass('active');
   $('.contain').removeClass('active');
 })
-$("section.work").on('click',function() {
-  window.location.href = "";
-});
+

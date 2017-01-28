@@ -1,0 +1,20 @@
+{% extends 'User/base3.html' %}
+{% block title %}
+	{{developer.developer_name}}'s Details
+{% endblock %}
+
+{% block body %}
+	<font color="black">
+		<img src="{{ developer.developer_logo.url }}" height="400" width="500">
+		<h1>{{developer.developer_name}}</h1>
+		<h3>Headquarters : {{developer.developer_headquarters}}</h3>
+		<h4>Specialization : </h4>
+		<ol>
+
+		{% for tag in developer.developer_tag_list %}
+				<li style="color:black;">{{tag}}</li>
+		{% endfor %}	
+		</ol>
+		
+	</font>
+{% endblock %}

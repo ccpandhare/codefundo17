@@ -1,0 +1,31 @@
+body{
+	background-image: url("images/gamers.png");
+}
+
+a:link{
+	color : blue;
+}
+
+a:visited {
+    color: white;
+}
+
+a:hover {
+    color: blue;
+    background-color: lightgreen;
+}
+
+ol li{
+	color:black;
+}
+ul li{
+	color:black;
+}
+.navbar{
+	border-radius: 0;
+	color:red;
+}
+
+.navbar-brand{
+	font-family: 'Aref Ruqaa', cursive;
+}

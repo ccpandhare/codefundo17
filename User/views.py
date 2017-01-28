@@ -14,12 +14,17 @@ class IndexView(generic.ListView):
 	def get_queryset(self):
 		return User.objects.all()
 
-'''
+
 class DetailView(generic.DetailView):
-	model = User
+	model = Developer
 	template_name = 'User/detail.html'
 
-class UserFormView(View):
+	#def get_queryset(self):
+	#	my_list = Developer.developer_tags.split(",")  
+	#	return my_list
+
+
+'''class UserFormView(View):
 
 	form_class = UserForm
 	template_name = 'User/registration-form.html'
