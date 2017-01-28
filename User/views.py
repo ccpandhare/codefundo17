@@ -1,6 +1,6 @@
 from django.views import generic
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from models import User, Developer
+from models import Developer
 from django.core.urlresolvers import reverse_lazy
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
@@ -12,8 +12,8 @@ class IndexView(generic.ListView):
 	template_name = 'User/index.html'
 
 	def get_queryset(self):
-		return User.objects.all()
-
+		return Developer.objects.all()
+	
 class DeveloperDetailsView(generic.ListView):
 	template_name = 'User/developerpage.html'
 
@@ -34,10 +34,10 @@ class LoginDetailView(generic.DetailView):
 	#	return my_list
 
 
-'''class UserFormView(View):
+class UserFormView(View):
 
 	form_class = UserForm
-	template_name = 'User/registration-form.html'
+	template_name = 'User/registration_form.html'
 
 	def get(self, request):
 		
@@ -66,11 +66,11 @@ class LoginDetailView(generic.DetailView):
 
  					login(request, user)
 
- 					return redirect('User:')
+ 					return redirect('User:developer-add')
 
  		return render(request, self.template_name, {'form':form})
 
- '''
+ 
 class DeveloperCreate(CreateView):
 
 	model = Developer

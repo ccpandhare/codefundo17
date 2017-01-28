@@ -1,6 +1,7 @@
 from __future__ import unicode_literals
 from django.core.urlresolvers import reverse
 from django.db import models
+'''
 
 class User(models.Model):
 
@@ -12,6 +13,7 @@ class User(models.Model):
 
 	def __unicode__(self):
 		return self.user_name
+'''
 
 class Developer(models.Model):
 

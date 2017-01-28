@@ -22,6 +22,9 @@ urlpatterns = [
 	url(r'^(?P<pk>[0-9]+)/$', views.DetailView.as_view(), name = 'detail'),
 
 	url(r'^devlogin(?P<pk>[0-9]+)/$', views.LoginDetailView.as_view(), name = 'login-detail'),
+	
+
+	url(r'^register/$', views.UserFormView.as_view(), name = 'register'),
 	]
 
 #CreateView.as_view(model=Developer, success_url=reverse('index'))
