@@ -4,9 +4,12 @@ $('a.toggle').on('click', function(){
   return false;
 })
 
-$('section').on('click', function(){
+$('section').not(".work").on('click', function(){
 //  $(this).closest('section').prependTo('.contain');
   $('section').removeClass('active');
   $(this).addClass('active');
   $('.contain').removeClass('active');
 })
+$("section.work").on('click',function() {
+  window.location.href = "";
+});
