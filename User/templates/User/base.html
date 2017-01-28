@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
+    
+   {% load staticfiles %}
     <meta charset="utf-8">
     <title>Team DVM</title>
     <link rel="stylesheet" href="../../static/User/css/base.css">
@@ -11,12 +13,16 @@
     <div class='contain'>
       <section class='home active'>
         <h1 class='title'>Home</h1>
+        {% block body %}
+        {% endblock %}
       </section>
       <section class='about'>
         <h1 class='title'>About</h1>
       </section>
       <section class='work'>
         <h1 class='title'>Register</h1>
+        {% block register %}
+        {% endblock %}
       </section>
     </div>
     <a class='toggle' href='#'>
@@ -24,6 +30,7 @@
       <span class='bar'></span>
       <span class='bar'></span>
     </a>
+
   </body>
   <script src="../../static/User/js/nav.js" charset="utf-8"></script>
 </html>
