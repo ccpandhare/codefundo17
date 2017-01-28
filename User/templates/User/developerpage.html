@@ -6,7 +6,7 @@
       justify-content: center;
     }
     ul#developers {
-      color:black !important;
+      
       width: 1280px;
       height: auto;
       padding-left: 0 !important;
@@ -58,6 +58,7 @@
     }
   </style>
   <div id="developercontainer">
+  <font color="black">
   <ul id="developers">
     {% for developer in object_list %}
     <li>
@@ -73,5 +74,6 @@
     {% endfor %}
     
   </ul>
+  </font>
   </div>
 {% endblock %}
