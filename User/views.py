@@ -1,3 +1,8 @@
 from django.shortcuts import render
 
-# Create your views here.
+class IndexView(generic.ListView):
+	template_name = 'User/index.html'
+
+	def get_queryset(self):
+		return User.models.all()
+
