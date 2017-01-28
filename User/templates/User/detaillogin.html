@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+	{% block title %}
+		Registration
+	{% endblock %}
+	</title>
+	{% load staticfiles %}
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+	<link rel="stylesheet" type="text/css" href="{% static 'Games/style.css' %}" />
+
+	<link href="https://fonts.googleapis.com/css?family=Aref+Ruqaa" rel="stylesheet"type="text/css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+<body style="background-color:powderblue; background-image: none">
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<!-- title -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#topNavBar">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="{% url 'User:index' %}">
+					<strong>HOME</strong>
+				</a>
+			</div>
+
+			<!-- Items -->
+			<div class="collapse navbar-collapse" id="topNavBar">
+				<ul class="nav navbar-nav">
+					<li class="">
+						<a href="{% url 'User:developer-detail' %}">
+							<span class="glyphicon glyphicon-barcode" aria-hidden="true"></span>&nbsp;
+							<strong>Developers</strong>
+						</a>
+					</li>
+					<li class="">
+						<a>
+							<span class="glyphicon glyphicon-qrcode" aria-hidden="true"></span>&nbsp;
+								<strong><font color=grey>Users</font></strong>
+						</a>
+					</li>
+				</ul>
+
+				<form class="navbar-form navbar-left" role="search" method="get" action="">
+					<div class="form-group">
+					<input type="text" class="form-control" name="q" value="">
+					</div>
+					<button type="submit" class="btn btn-default">Search</button>
+				</form>
+
+				<ul class="nav navbar-nav navbar-right">
+					<li class="">
+						<a>					
+						<span class="" aria-hidden="true"></span>&nbsp; Welcome, {{developer.developer_name}}!
+						</a>
+					</li>
+					<li class="">
+						<a href="{% url 'User:index' %}">
+						<span class="" aria-hidden="true"></span>&nbsp; Logout
+						</a>
+					</li>
+
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<font color="black">
+		<img src="{{ developer.developer_logo.url }}" height="400" width="500">
+		<h1>{{developer.developer_name}}</h1>
+		<h3>Headquarters : {{developer.developer_headquarters}}</h3>
+		<h4>Specialization : </h4>
+		<ol>
+
+		{% for tag in developer.developer_tag_list %}
+				<li style="color:black;">{{tag}}</li>
+		{% endfor %}	
+		</ol>
+		
+	</font>
+</body>
+</html>

@@ -25,6 +25,10 @@ class DetailView(generic.DetailView):
 	model = Developer
 	template_name = 'User/detail.html'
 
+class LoginDetailView(generic.DetailView):
+	model = Developer
+	template_name = 'User/detaillogin.html'
+
 	#def get_queryset(self):
 	#	my_list = Developer.developer_tags.split(",")  
 	#	return my_list

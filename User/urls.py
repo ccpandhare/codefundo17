@@ -20,6 +20,8 @@ urlpatterns = [
 	url(r'developer/(?P<pk>[0-9]+)/delete/$', views.DeveloperDelete.as_view(), name = 'developer-delete'),
 	
 	url(r'^(?P<pk>[0-9]+)/$', views.DetailView.as_view(), name = 'detail'),
+
+	url(r'^devlogin(?P<pk>[0-9]+)/$', views.LoginDetailView.as_view(), name = 'login-detail'),
 	]
 
 #CreateView.as_view(model=Developer, success_url=reverse('index'))

@@ -24,7 +24,7 @@ class Developer(models.Model):
 		return self.developer_name
 
 	def get_absolute_url(self):
-		return reverse('User:detail', kwargs={'pk':self.pk})
+		return reverse('User:login-detail', kwargs={'pk':self.pk})
 
 	def developer_tag_list(self):
 		return self.developer_tags.split(',')
