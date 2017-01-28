@@ -18,7 +18,7 @@ class IndexView(generic.ListView):
 class DetailView(generic.DetailView):
 	model = User
 	template_name = 'User/detail.html'
-'''
+
 class UserFormView(View):
 
 	form_class = UserForm
@@ -51,6 +51,23 @@ class UserFormView(View):
 
  					login(request, user)
 
- 					return redirect('User:index')
+ 					return redirect('User:')
 
  		return render(request, self.template_name, {'form':form})
+
+ '''
+class UserCreate(CreateView):
+
+	model = User
+	fields = ['user_name', 'user_profile_picture', 'user_age', 'user_profession', 'user_tags'] 
+
+class UserUpdate(UpdateView):
+
+	model = User
+	fields = ['user_name', 'user_profile_picture', 'user_age', 'user_profession', 'user_tags'] 
+
+class UserDelete(DeleteView):
+
+	model = User
+
+	success_url = reverse_lazy('User:index')
