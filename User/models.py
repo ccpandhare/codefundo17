@@ -1,6 +1,9 @@
 from __future__ import unicode_literals
 from django.core.urlresolvers import reverse
 from django.db import models
+from django.contrib.auth.models import User
+
+
 '''
 
 class User(models.Model):
@@ -18,8 +21,8 @@ class User(models.Model):
 class Developer(models.Model):
 
 	developer_name = models.CharField(max_length=100)
-	developer_logo = models.FileField(max_length=1000)
-	developer_headquarters = models.CharField(max_length=1000)
+	developer_logo = models.FileField()
+	developer_headquarters = models.CharField(max_length=100)
 	developer_tags = models.CharField(max_length=100)
 
 	def __unicode__(self):
@@ -30,3 +33,15 @@ class Developer(models.Model):
 
 	def developer_tag_list(self):
 		return self.developer_tags.split(',')
+
+class UserProfile(models.Model):
+        # This field is required.
+    user = models.OneToOneField(User)
+        # These fields are optional
+    developer_name = models.CharField(max_length=100)
+    developer_logo = models.FileField()
+    developer_headquarters = models.CharField(max_length=100)
+    developer_tags = models.CharField(max_length=100)
+        
+    def __unicode__(self):
+		return self.user.username
