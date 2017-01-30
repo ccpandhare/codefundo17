@@ -4,34 +4,26 @@
 
 
 {% block body %}
+        <div style="width:100%; height: 90vh; display: flex; justify-content: center; align-items: center">
+        <div style="background:#fff;margin:0;padding:0;display:flex;align-items:center;justify-content:center;width:500px;height:auto;padding-left:50px;padding-right:50px;">
+        <div>
 {% if registered %}
-                <A href="{% url 'User:index' %}">We</A> say: thank you for registering.
+        <A href="{% url 'User:index' %}">We</A> say: thank you for registering.
 {% else %}
-        <div class="container-fluid">
-	<div class="row">
-
-		<div class="col-sm-12 col-md-7">
-			<div class="panel panel-default">
-				<div class="panel-body">
-				<strong><h3>Register as a New Developer!</h3></strong>
+				<h3 style="margin-top:40px; margin-bottom:60px;">Register as a New Developer!</h3>
 				{% if error_message %}
-					<p><strong>{{ error_message}} </strong></p>
+				<p><strong>{{ error_message}} </strong></p>
 				{% endif %}
-					<form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
-						{% csrf_token %}
-						{% include 'User/form-template.html' %}
-						<div class="form-group">
-							<div class="col-sm-offset-2 col-sm-10">
-							<button type="submit" class="btn btn-success">Submit</button>
-							</div>
-						</div>
+				  <form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
+					  {% csrf_token %}
+					  {% include 'User/form-template.html' %}
+					  <div class="form-group" style="margin-top:20px; margin-bottom: 40px;">
+					    <button type="submit" class="btn btn-success">Submit</button>
+					  </div>
+          </form>
+        </div>
+        </div>
+        </div>
 
-					</form>
-
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
 {% endif %}
 {% endblock %}

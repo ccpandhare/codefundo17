@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    
+
    {% load staticfiles %}
     <meta charset="utf-8">
     <title>Team DVM</title>
@@ -12,15 +12,18 @@
   <body>
     <div class='contain'>
       <section class='home active'>
-        <h1 class='title'>Home</h1>
+        <h1 class='title'>Welcome to the Digital Age</h1>
         {% block body %}
         {% endblock %}
       </section>
       <section class='about'>
         <h1 class='title'>About</h1>
+        <div style="height:100%; width:100%; display: flex; align-items:center; justify-content: center;">
+          <p style="text-align: justify; font-family: 'Raleway', sans-serif; font-size: 27px; line-height: 40px; max-width: 500px; margin-top: -100px">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
       </section>
       <section class='work'>
-        <a href="{% url 'User:register' %}" style="text-decoration:none;"><h1 class='title'>Register</h1></a>
+        <a href="{% url 'User:register' %}" style="text-decoration:none;"><h1 class='title'>Go to the main site</h1></a>
         {% block register %}
         {% endblock %}
       </section>

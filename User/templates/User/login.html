@@ -1,17 +1,33 @@
-<HTML>
-<HEADER>
-    <TITLE>Login</TITLE>
-</HEADER>
-<BODY>
-        <FORM id="login_form" method="post" action="/user/login/">
-        {% csrf_token %}
-                Username:
-                <input type="text" name="username" value="" id="username" size="50" />
-            <br />
-                Password:
-                <input type="password" name="password" value="" id="password" size="50" />
-                <br />
-        <INPUT type="submit" name="submit" value="submit" />
-        </FORM>
-</BODY>
-</HTML>
+{% extends 'User/base3.html' %}
+{% block title %}
+Login
+{% endblock %}
+{% block body %}
+<div style="width:100%; height: 90vh; display: flex; justify-content: center; align-items: center">
+<div style="background:#fff;margin:0;padding:0;display:flex;align-items:center;justify-content:center;width:500px;height:auto;padding-left:50px;padding-right:50px;">
+<div>
+  <h3 style="margin-top:40px; margin-bottom:60px;">Log in to your account</h3>
+        <form class="form-horizontal" action="/user/login/" method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="form-group">
+        		<div style="display:flex; justify-content: space-between;">
+        		<label class="control-label">Username: </label>
+          		<input type="text" name="username" value="">
+        		</div>
+        	</div>
+          <div class="form-group">
+        		<div style="display:flex; justify-content: space-between;">
+              <label class="control-label">Password: </label>
+            	<input type="password" name="password" value="">
+          	</div>
+          </div>
+          <div class="form-group" style="margin-top:20px; margin-bottom: 40px;">
+            <button type="submit" class="btn btn-success">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+{% endblock %}
