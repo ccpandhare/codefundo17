@@ -22,7 +22,7 @@ from django.views.generic import FormView, RedirectView
 from django.utils.http import is_safe_url
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import REDIRECT_FIELD_NAME, login as auth_login, logout as auth_logout
-
+from django.core.exceptions import *
 
 class IndexView(generic.ListView):
 	template_name = 'User/index.html'
@@ -116,31 +116,6 @@ class DeveloperDelete(DeleteView):
 	def dispatch(self, *args, **kwargs):
 		return super(DeveloperDelete, self).dispatch(*args, **kwargs)
 
-
-'''
-def user_login(request):
-    context = RequestContext(request)
-    if request.method == 'POST':
-          username = request.POST['username']
-          password = request.POST['password']
-          user = authenticate(username=username, password=password)
-          if user is not None:
-              if user.is_active:
-                  login(request, user)
-                  # Redirect to index page.
-                  return HttpResponseRedirect("{% url 'User:index' %}")
-              else:
-                  # Return a 'disabled account' error message
-                  return HttpResponse("You're account is disabled.")
-          else:
-              # Return an 'invalid login' error message.
-              print  "invalid login details " + username + " " + password
-              return render_to_response('User/login.html', {}, RequestContext(request))
-    else:
-        # the login is a  GET request, so just show the user the login form.
-        return render_to_response('User/login.html', {}, RequestContext(request))
-
-'''
 class LoginView(FormView):
     """
     Provides the ability to login as a user with a username and password
@@ -181,3 +156,18 @@ def user_logout(request):
     logout(request)
     # Redirect back to index page.
     return HttpResponseRedirect('/user/')
+
+
+def search(request):
+	
+	developers = []
+
+	if request.GET.get('search'):
+
+		search = request.GET.get('search')
+		developers = Developer.objects.filter(developer_tags__contains=search)
+
+
+
+	return render(request, 'User/search.html', {'developers':developers,})
+

@@ -1,0 +1,82 @@
+{% extends 'User/base3.html' %}
+
+{% block body %}
+		
+	<style>
+	    #developercontainer {
+	      display: flex;
+	      justify-content: center;
+	    }
+	    ul#developers {
+	      
+	      width: 1280px;
+	      height: auto;
+	      padding-left: 0 !important;
+	      margin-bottom: 0 !important;
+	    }
+	    @media all and (max-width: 1279px) {
+	      ul#developers {
+	        width: 960px;
+	      }
+	    }
+	    @media all and (max-width: 959px) {
+	      ul#developers {
+	        width: 640px;
+	      }
+	    }
+	    @media all and (max-width: 639px) {
+	      ul#developers {
+	        width: 320px;
+	      }
+	    }
+	    ul#developers li {
+	      display: block;
+	      width: 300px;
+	      height: auto;
+	      background: #fff;
+	      float: left;
+	      margin: 10px;
+	      padding: 10px;
+	      padding-bottom: 20px;
+	    }
+	    div.profile {
+	      display: block;
+	      width: 280px;
+	      height: 280px;
+	      background-color: #ddd;
+	      background-position: center;
+	      background-size: cover;
+	    }
+	    ul#developers li label{
+	      display: block;
+	      padding-top: 5px;
+	      padding-bottom: 0px;
+	    }
+	    ul#developers li label:first-of-type {
+	      padding-top: 20px;
+	    }
+	    label[for="name"] {
+	      font-size: 1.5em;
+	    }
+	</style>
+  	<div id="developercontainer">
+  	<font color="black">
+  	<ul id="developers">
+    {% for developer in developers %}
+  		<li style="color:black!important;">
+      		<div class="profile" style="background-image:url({{ developer.developer_logo.url }})"></div>
+     		<label for="name">
+        	<span>{{ developer.developer_name }}</span>
+      		</label>
+     		 <label for="headquarters">
+     	    <span>Headquarters: {{ developer.developer_headquarters }}</span>
+      		</label>
+      		<button type="button" name="viewdetails" onclick="location.replace('{% url "User:detail" developer.id %}')">View Details</button>
+   		 </li>
+    {% endfor %}
+    
+  	</ul>
+  </font>
+  </div>
+
+{% endblock %}
