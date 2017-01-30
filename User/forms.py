@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from django import forms
+from models import UserProfile
 
 class UserForm(forms.ModelForm):
 
@@ -9,3 +10,8 @@ class UserForm(forms.ModelForm):
 		model = User
 		fields = ['username', 'email', 'password']
 
+class UserProfileForm(forms.ModelForm):
+
+	class Meta:
+		model = UserProfile 
+		fields = ['developer_name', 'developer_logo', 'developer_headquarters', 'developer_tags']

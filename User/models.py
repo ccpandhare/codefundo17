@@ -2,6 +2,7 @@ from __future__ import unicode_literals
 from django.core.urlresolvers import reverse
 from django.db import models
 from django.contrib.auth.models import User
+from django import forms
 
 
 '''
@@ -45,3 +46,15 @@ class UserProfile(models.Model):
         
     def __unicode__(self):
 		return self.user.username
+
+from django.forms import ModelForm
+
+class UserForm(forms.ModelForm):
+        class Meta:
+                model = User
+                fields = ['username', 'email', 'password']
+
+class UserProfileForm(forms.ModelForm):
+        class Meta:
+                model = UserProfile
+                fields = ['developer_name', 'developer_logo', 'developer_headquarters', 'developer_tags']

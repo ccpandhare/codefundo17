@@ -15,12 +15,7 @@ a:hover {
     background-color: lightgreen;
 }
 
-ol li{
-	color:black;
-}
-ul li{
-	color:black;
-}
+
 .navbar{
 	border-radius: 0;
 	color:red;

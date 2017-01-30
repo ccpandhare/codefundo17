@@ -1,14 +1,19 @@
 {% extends 'User/base3.html' %}
 {% block title %}Register{% endblock %}
+{% block developers_active %}active{% endblock %}
+
 
 {% block body %}
-<div class="container-fluid">
+{% if registered %}
+                <A href="{% url 'User:index' %}">We</A> say: thank you for registering.
+{% else %}
+        <div class="container-fluid">
 	<div class="row">
 
 		<div class="col-sm-12 col-md-7">
 			<div class="panel panel-default">
 				<div class="panel-body">
-				<h3>Create a New Account</h3>
+				<strong><h3>Register as a New Developer!</h3></strong>
 				{% if error_message %}
 					<p><strong>{{ error_message}} </strong></p>
 				{% endif %}
@@ -28,4 +33,5 @@
 		</div>
 	</div>
 </div>
+{% endif %}
 {% endblock %}

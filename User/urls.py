@@ -25,6 +25,10 @@ urlpatterns = [
 	
 
 	url(r'^register/$', views.UserFormView.as_view(), name = 'register'),
+
+	url(r'^login/$', views.LoginView.as_view(), name = 'login'),
+	
+	url(r'^logout/$', views.user_logout, name= 'logout'),
 	]
 
 #CreateView.as_view(model=Developer, success_url=reverse('index'))
