@@ -21,16 +21,17 @@ class User(models.Model):
 
 class Developer(models.Model):
 
-	developer_name = models.CharField(max_length=100)
-	developer_logo = models.FileField()
-	developer_headquarters = models.CharField(max_length=100)
-	developer_tags = models.CharField(max_length=100)
+   	user = models.OneToOneField(User, default=None)
+   	developer_name = models.CharField(max_length=100, default='Someone')
+   	developer_logo = models.FileField()
+   	developer_headquarters = models.CharField(max_length=100)
+   	developer_tags = models.CharField(max_length=100)
 
-	def __unicode__(self):
+   	def __unicode__(self):
 		return self.developer_name
 
 	def get_absolute_url(self):
-		return reverse('User:login-detail', kwargs={'pk':self.pk})
+		return reverse('User:detail', kwargs={'pk':self.pk})
 
 	def developer_tag_list(self):
 		return self.developer_tags.split(',')

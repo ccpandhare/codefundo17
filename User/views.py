@@ -95,6 +95,11 @@ class DeveloperCreate(CreateView):
 	def dispatch(self, *args, **kwargs):
 		return super(DeveloperCreate, self).dispatch(*args, **kwargs)
 
+	def form_valid(self, form):
+
+		form.instance.user = self.request.user
+		return super(DeveloperCreate, self).form_valid(form)
+
 class DeveloperUpdate(UpdateView):
 
 	model = Developer

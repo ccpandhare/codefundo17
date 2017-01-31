@@ -38,11 +38,32 @@
 			</div>
 
 			<!-- Items -->
+			
 			<div class="collapse navbar-collapse" id="topNavBar">
+				
+			{% if user.is_authenticated %}
+
+				<ul class="nav navbar-nav">
+					<li>
+						<a style="background: transparent !important;">
+							<span style="color: #fff; font-size: 20px;">Most viewed Tags</span>
+						</a>
+					</li>
+					<form class="navbar-form navbar-left" role="search" method="get" action="/user/search">
+					<div class="form-group">
+					<input type="text" class="form-control" name="search" value="" style="background: transparent; border: 2px solid white">
+					</div>
+					<button type="submit" class="btn btn-default" style="color: #4CAF50">Search</button>
+					</form>
+
+				</ul>
+				
+			{% else %}
+
 				<ul class="nav navbar-nav">
 					<li>
 						<a href="{% url 'User:developer-detail' %}" style="background: transparent !important;">
-							<span style="color: #fff; font-size: 20px;">Developers</span>
+							<span style="color: #fff; font-size: 20px;">About the Developers</span>
 						</a>
 					</li>
 					<li class="">
@@ -50,6 +71,7 @@
 							<span style="color: rgba(200,200,200,0.9); font-size: 20px;">Users</span>
 						</a>
 					</li>
+					
 				</ul>
 
 				<form class="navbar-form navbar-left" role="search" method="get" action="/user/search">
@@ -59,6 +81,8 @@
 					<button type="submit" class="btn btn-default" style="color: #4CAF50">Search</button>
 				</form>
 
+			{% endif %}
+
 				<ul class="nav navbar-nav navbar-right">
 
 
@@ -66,7 +90,7 @@
 
 					<li class="">
 						<a href="{% url 'User:developer-detail' %}" style="background: transparent">
-							<span style="color: #fff; font-size: 20px;">About Me</span>
+							<span style="color: #fff; font-size: 20px;">About the Developers</span>
 						</a>
 					</li>
 					<li class="">
