@@ -58,6 +58,7 @@
 					</div>
 					<button type="submit" class="btn btn-default" style="color: #4CAF50">Search</button>
 				</form>
+
 				<ul class="nav navbar-nav navbar-right">
 
 
@@ -76,13 +77,13 @@
 
 					{% else %}
 					<li class="">
-						<a href="{% url 'User:register' %}">
-						<span class="" aria-hidden="true"></span>&nbsp; Register
+						<a href="{% url 'User:register' %}" style="background: transparent">
+							<span style="color: #fff; font-size: 20px;">Register</span>
 						</a>
 					</li>
 					<li class="">
-						<a href="{% url 'User:login' %}">
-						<span class="" aria-hidden="true"></span>&nbsp; Login
+						<a href="{% url 'User:login' %}" style="background: transparent">
+							<span style="color: #fff; font-size: 20px;">Log In</span>
 						</a>
 					</li>
 					{% endif %}

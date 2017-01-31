@@ -12,9 +12,15 @@
   <body>
     <div class='contain'>
       <section class='home active'>
+        {% if user.is_authenticated %}
         <h1 class='title'>Welcome to the Digital Age</h1>
-        {% block body %}
-        {% endblock %}
+        
+
+        {% else %}
+        <h1 class='title'>Welcome to the Digital Age<br> Please Register or Login to continue</h1>
+        
+
+        {% endif %}
       </section>
       <section class='about'>
         <h1 class='title'>About</h1>
@@ -23,9 +29,11 @@
         </div>
       </section>
       <section class='work'>
-        <a href="{% url 'User:register' %}" style="text-decoration:none;"><h1 class='title'>Go to the main site</h1></a>
-        {% block register %}
-        {% endblock %}
+        {% if user.is_authenticated %}
+         <a href="{% url 'User:developer-detail' %}" style="text-decoration:none;"><h1 class='title'>Go to the developers' page</h1></a>
+        {% else %}
+         <a href="{% url 'User:register' %}" style="text-decoration:none;"><h1 class='title'>Register as a New Developer or Sign In</h1></a>
+         {% endif %}
       </section>
     </div>
     <a class='toggle' href='#'>
