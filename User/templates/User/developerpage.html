@@ -1,12 +1,15 @@
 {% extends 'User/base3.html' %}
 {% block body %}
   <style>
+    #aboutdevs {
+      border-bottom: 2px solid white;
+    }
     #developercontainer {
       display: flex;
       justify-content: center;
     }
     ul#developers {
-      
+
       width: 1280px;
       height: auto;
       padding-left: 0 !important;
@@ -36,6 +39,7 @@
       margin: 10px;
       padding: 10px;
       padding-bottom: 20px;
+      border-radius: 10px;
     }
     div.profile {
       display: block;
@@ -58,10 +62,9 @@
     }
   </style>
   <div id="developercontainer">
-  
-  <h1>Our developers : <br></h1>
+
   <font color="black">
-  
+
   <ul id="developers">
     {% for developer in object_list %}
     <li style="color:black!important;">
@@ -72,10 +75,10 @@
       <label for="headquarters">
         <span>Headquarters: {{ developer.developer_headquarters }}</span>
       </label>
-      <button type="button" name="viewdetails" onclick="location.replace('{% url "User:detail" developer.id %}')">View Details</button>
+      <button type="button" class="btn btn-success" name="viewdetails" onclick="location.replace('{% url "User:detail" developer.id %}')">View Details</button>
     </li>
     {% endfor %}
-    
+
   </ul>
   </font>
   </div>

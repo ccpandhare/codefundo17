@@ -5,12 +5,17 @@
 
 {% block body %}
 <div style="display: flex; height: 100%; align-items: center; justify-content: center;">
-<div style="width:350px; background: #fff; padding: 25px 0;">
+<div style="display: flex; align-items: center">
+<div style="width:400px; background: #fff; padding: 25px 0; float: left; border-radius: 10px;">
 	<center>
-		<div style="background: url({{ developer.developer_logo.url }}) center no-repeat; background-size: cover; width: 300px; height: 300px;"></div>
+		<div style="background: url({{ developer.developer_logo.url }}) center no-repeat; background-size: cover; width: 350px; height: 350px;"></div>
 	</center>
 		<h1 class="text-center" style="line-height: auto">{{developer.developer_name}}</h1>
 		<h3 class="text-center">Headquarters : {{developer.developer_headquarters}}</h3>
+		<h4 class="text-center">Address : {{developer.developer_address}}</h4>
+		<h5 class="text-center">Contact : {{developer.developer_contact}}</h5>
+</div>
+<div style="width:400px; background: #fff; padding: 25px 0; float: left; margin-left: 20px; border-radius: 10px">
 	<center>
 	<div style="width: 150px;">
 		<h4>Specialization : </h4>
@@ -21,6 +26,7 @@
 		</ol>
 	</div>
 	</center>
+</div>
 </div>
 </div>
 {% endblock %}

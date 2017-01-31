@@ -61,13 +61,13 @@ a.toggle:hover .bar {
     top: 0;
 }
 .contain section.home {
-    background: #2196F3;
+    background: green;
 }
 .contain section.about {
-    background: #FFC107;
+    background: white;
 }
 .contain section.work {
-    background: #4CAF50;
+    background: darkorange;
 }
 .contain section.contact {
     background: #F44336;

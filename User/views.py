@@ -29,7 +29,7 @@ class IndexView(generic.ListView):
 
 	def get_queryset(self):
 		return Developer.objects.all()
-	
+
 class DeveloperDetailsView(generic.ListView):
 	template_name = 'User/developerpage.html'
 
@@ -46,7 +46,7 @@ class LoginDetailView(generic.DetailView):
 	template_name = 'User/detaillogin.html'
 
 	#def get_queryset(self):
-	#	my_list = Developer.developer_tags.split(",")  
+	#	my_list = Developer.developer_tags.split(",")
 	#	return my_list
 
 class UserFormView(View):
@@ -55,7 +55,7 @@ class UserFormView(View):
 	template_name = 'User/registration_form.html'
 
 	def get(self, request):
-		
+
 		form = self.form_class(None)
 		return render(request, self.template_name, {'form':form})
 
@@ -89,7 +89,7 @@ class UserFormView(View):
 class DeveloperCreate(CreateView):
 
 	model = Developer
-	fields = ['developer_name', 'developer_logo', 'developer_headquarters', 'developer_tags'] 
+	fields = ['developer_name', 'developer_logo', 'developer_headquarters', 'developer_tags', 'developer_address', 'developer_contact']
 
 	@method_decorator(login_required)
 	def dispatch(self, *args, **kwargs):
@@ -103,7 +103,7 @@ class DeveloperCreate(CreateView):
 class DeveloperUpdate(UpdateView):
 
 	model = Developer
-	fields = ['developer_name', 'developer_logo', 'developer_headquarters', 'developer_tags'] 
+	fields = ['developer_name', 'developer_logo', 'developer_headquarters', 'developer_tags','developer_address', 'developer_contact']
 
 	@method_decorator(login_required)
 	def dispatch(self, *args, **kwargs):
@@ -164,7 +164,7 @@ def user_logout(request):
 
 
 def search(request):
-	
+
 	developers = []
 
 	if request.GET.get('search'):
@@ -175,4 +175,3 @@ def search(request):
 
 
 	return render(request, 'User/search.html', {'developers':developers,})
-

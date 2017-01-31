@@ -22,10 +22,12 @@ class User(models.Model):
 class Developer(models.Model):
 
    	user = models.OneToOneField(User, default=None)
-   	developer_name = models.CharField(max_length=100, default='Someone')
+   	developer_name = models.CharField(max_length=100, default='')
    	developer_logo = models.FileField()
    	developer_headquarters = models.CharField(max_length=100)
-   	developer_tags = models.CharField(max_length=100)
+	developer_address = models.CharField(max_length=1000, default = '')
+	developer_contact = models.CharField(max_length=100, default = '')
+   	developer_tags = models.CharField(max_length=100, default='Separate by comma')
 
    	def __unicode__(self):
 		return self.developer_name
@@ -44,7 +46,7 @@ class UserProfile(models.Model):
     developer_logo = models.FileField()
     developer_headquarters = models.CharField(max_length=100)
     developer_tags = models.CharField(max_length=100)
-        
+
     def __unicode__(self):
 		return self.user.username
 

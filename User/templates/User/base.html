@@ -4,7 +4,7 @@
 
    {% load staticfiles %}
     <meta charset="utf-8">
-    <title>Team DVM</title>
+    <title>Skill Portal</title>
     <link rel="stylesheet" href="../../static/User/css/base.css">
     <link rel="stylesheet" href="../../static/User/css/button.css">
     <script src="../../static/User/js/jquery.min.js" charset="utf-8"></script>
@@ -13,19 +13,27 @@
     <div class='contain'>
       <section class='home active'>
         {% if user.is_authenticated %}
-        <h1 class='title'>Welcome to the Digital Age</h1>
-        
+        <h1 class='title'>Welcome to the Digital Age<br> Click on the top left corner.</h1>
+
 
         {% else %}
-        <h1 class='title'>Welcome to the Digital Age<br> Please Register or Login to continue</h1>
-        
+        <h1 class='title'>Welcome to the Digital Age<br> Please Register or Login via <br> the top left corner to continue</h1>
+
 
         {% endif %}
       </section>
       <section class='about'>
-        <h1 class='title'>About</h1>
+        <h1 class='title' style="color: blue">About</h1>
         <div style="height:100%; width:100%; display: flex; align-items:center; justify-content: center;">
-          <p style="text-align: justify; font-family: 'Raleway', sans-serif; font-size: 27px; line-height: 40px; max-width: 500px; margin-top: -100px">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <p style="text-align: justify; font-family: 'Raleway', sans-serif; font-size: 25px; line-height: 35px; max-width: 600px; margin-top: -100px; color: blue">
+
+            This webapp is made for those who have a brilliant idea in their minds but lack the resources to turn them into a reality.
+            The users can search the databse for "Developers", organisations as well as individuals willing to play their role in the development of
+            the nation. The users can straightaway get the contact details of the developers and can contact them on their own, presenting their ideas.
+            The webapp also provides an oppurtunity for developers to register and enter their 'Tags': i.e. their specializations. This webapp is under development
+            as of now and the next step involves the developers to keep a track on which resources are being demanded the most by users. Knowing the same,
+            they can contact the users by their own and collaborate with them for the betterment of the nation.
+
         </div>
       </section>
       <section class='work'>
